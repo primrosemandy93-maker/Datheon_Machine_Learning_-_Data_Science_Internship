@@ -1,0 +1,8 @@
+# Unpinned working dependencies; original runtime versions were not recorded.
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyterlab
+ipykernel
