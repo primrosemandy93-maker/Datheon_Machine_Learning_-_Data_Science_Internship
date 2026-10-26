@@ -8,6 +8,7 @@
 - Notebook structures were validated with nbformat.
 - Iris accuracy and macro F1 matched the historical results; housing RMSE and R² matched within the runner's documented numeric tolerances.
 - Housing price-band counts sum to 3,400 test areas for every model.
+- Additional training-only robustness cells ran successfully: Iris majority-class baseline plus 50 repeated stratified splits per model; housing median baseline plus five random and five geographic folds per model. Geographic group overlap is checked within the notebook.
 - Housing data matched SHA-256 `bb9ca4041a66e0ed691cb825188f16fdab518435c4950a080951be2fdfe30d4d` and shape 17,000 × 9. The exact file was retrieved from the Google source linked in the project README.
 - The housing loader was separately executed with an empty temporary project directory; its fresh download and checksum validation passed.
 - The exported confusion matrices and housing actual-versus-predicted chart were visually inspected. Project pages link directly to measured CSVs, charts and notebooks.
@@ -37,4 +38,4 @@ Generated CSVs and PNGs are committed for readers who do not run code. Full exec
 
 Reproducing a metric verifies this workflow on these data and splits. It does not prove deployment readiness or future predictive performance. Iris has just 30 test examples. Housing has geographic dependence, capped historical targets, and mixed validation/test findings. No external validation, production deployment or measured business impact is claimed.
 
-The original notebook paths and modelling choices are retained. Changes make execution portable, export evidence, and clarify the mixed housing findings; they do not introduce new model performance claims.
+The original notebook paths, historical test splits and test-model settings are retained. Changes make execution portable, export evidence, clarify the mixed housing findings, and add explicitly labelled training-only robustness analyses. New validation measurements are reported separately from the historical test results. No new model was selected by retuning against the existing test set.

@@ -1,17 +1,21 @@
-# Primrose Mandizvidza · Data Science Portfolio
+![Data science and machine learning portfolio — two reproducible case studies](assets/portfolio-cover.svg)
 
-Two educational projects from my Datheon Machine Learning & Data Science internship tasks, demonstrating Python data analysis, scikit-learn pipelines, model comparison, and honest interpretation of results.
+**[01 · Iris classification](task_1_iris/README.md)** &nbsp; / &nbsp; **[02 · Housing prediction](task_2_housing/README.md)** &nbsp; / &nbsp; **[Reproduce the analysis](REPRODUCIBILITY.md)**
 
-I hold a BSc Honours Degree in Information Systems from Midlands State University (2019) and am building practical data science skills. These are educational projects; they are not production deployments or evidence of paid data scientist employment.
+# Evidence before model selection
+
+Two case studies in Python data analysis and machine learning, with baseline comparisons, validation beyond a single test score, and explicit decisions about what the evidence supports.
+
+**Focus:** reproducible workflows · model evaluation · error analysis · decision-making
 
 ## Explore the projects
 
 | Project | Question | Evidence |
 |---|---|---|
-| **[Iris species classification](task_1_iris/README.md)** | How do Logistic Regression and a small Decision Tree compare on flower classification? | 150 observations; stratified split; classification metrics and confusion matrices. |
-| **[California housing value prediction](task_2_housing/README.md)** | Do engineered features and regularisation improve linear-model predictions? | 17,000 census areas; five-fold validation; RMSE/MAE/R²; errors by price band. |
+| **[Iris species classification](task_1_iris/README.md)** | How do Logistic Regression and a small Decision Tree compare on flower classification? | 150 observations; majority-class baseline; 50 training-only validation splits; confusion matrices. |
+| **[California housing value prediction](task_2_housing/README.md)** | Do engineered features and regularisation improve linear-model predictions? | 17,000 census areas; median baseline; random and geographic validation; RMSE/MAE/R²; price-band errors. |
 
-**Key findings:** The Iris Decision Tree classified 29/30 test flowers correctly versus 28/30 for Logistic Regression. Housing feature engineering reduced test RMSE by about 1.1%, but made cross-validation performance worse; it is not a proven general improvement.
+**Key findings:** Iris Logistic Regression averaged 96.0% accuracy across repeated training validation, compared with 95.1% for the tree, despite the tree winning on the small original test split. Housing's original-feature Linear Regression had lower RMSE than engineered features in both random and geographic validation. A small test-set gain alone would have led to a different, less well-supported model choice.
 
 ## Reproduce the results
 
@@ -48,6 +52,10 @@ scripts/          Automated notebook-cell execution and result checks
 requirements.txt  Pinned direct dependencies
 REPRODUCIBILITY.md Validation record, environment and interpretation limits
 ```
+
+## Context and attribution
+
+These educational projects were completed for Datheon Machine Learning & Data Science internship tasks. I hold a BSc Honours Degree in Information Systems from Midlands State University (2019). No production deployment or measured business impact is claimed.
 
 ## Reading the evidence
 

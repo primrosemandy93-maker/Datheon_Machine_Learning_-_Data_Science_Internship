@@ -1,0 +1,7 @@
+Validation,Model,Mean RMSE ($),RMSE fold SD ($),Mean MAE ($)
+Random 5-fold,Median-value baseline,118777.82086177504,3070.8847128988377,88348.79036764706
+Random 5-fold,Linear Regression — original,70049.10703964936,1859.5084313630437,51084.83876378725
+Random 5-fold,Linear Regression — engineered,70805.39190661018,5178.28783895624,50116.38142162722
+Geographic groups,Median-value baseline,119252.61856412006,12656.141583459052,89299.97419117647
+Geographic groups,Linear Regression — original,71041.26900383658,9386.730957357327,52385.667203182544
+Geographic groups,Linear Regression — engineered,73000.10774670145,9783.018873310257,51296.988322408506

@@ -1,10 +1,12 @@
+![California Housing Value Prediction — project overview](cover.svg)
+
 # California Housing Value Prediction
 
 **Question:** Do feature engineering and regularisation improve predictions of historical median housing values?
 
 [Read the notebook](Task_2_Housing_Price_Prediction.ipynb) · [Open in Colab](https://colab.research.google.com/github/primrosemandy93-maker/Datheon_Machine_Learning_-_Data_Science_Internship/blob/main/task_2_housing/Task_2_Housing_Price_Prediction.ipynb) · [Back to portfolio](../README.md)
 
-## Work demonstrated
+## Scope and approach
 
 An educational Datheon internship task. The notebook separates a test set, explores training data, engineers ratios and an interaction, compares feature sets with cross-validation, tunes Ridge and Lasso, and examines overall and price-band errors. The portfolio update adds portable data loading, saved evidence and a reproducible runner.
 
@@ -59,6 +61,24 @@ The loader rejects a different checksum rather than silently reporting incompara
 
 ![Actual versus predicted median housing values](results/actual_vs_predicted.png)
 
+## Robustness check: baseline and geographic validation
+
+The following comparisons use **training data only**. The baseline predicts the training-fold median for every validation area. Geographic GroupKFold holds out complete 0.5-degree latitude/longitude grid cells; code checks that grid-cell groups do not overlap within a fold.
+
+| Model | Random 5-fold mean RMSE | Geographic mean RMSE | Geographic RMSE fold SD |
+|---|---:|---:|---:|
+| Median-value baseline | $118,777.82 | $119,252.62 | $12,656.14 |
+| Linear Regression — original | $70,049.11 | $71,041.27 | $9,386.73 |
+| Linear Regression — engineered | $70,805.39 | $73,000.11 | $9,783.02 |
+
+![Baseline and geographic validation comparison](results/geographic_validation.png)
+
+[Summary measurements](results/geographic_validation.csv) · [All validation-fold measurements](results/geographic_validation_folds.csv)
+
+**Model choice and metric trade-off:** both linear models improve substantially over the median baseline. The original features remain preferable if RMSE is the decision criterion, because RMSE gives more weight to large errors. Engineered features have lower mean MAE in both validation schemes, so the answer depends on whether typical or large errors matter more. Reporting only the favourable test metric would hide this trade-off.
+
+Adjacent grid cells can still be near each other across folds. This is a spatial robustness check, not a geographic buffer or a claim of performance in a completely new region. Grouped fold variability is not a confidence interval.
+
 ## Where predictions struggle
 
 For engineered Linear Regression:
@@ -73,7 +93,7 @@ Higher-value areas have the largest dollar errors; this does not establish the l
 
 ## Limitations and next investigation
 
-Historical, capped area-level values cannot support current property valuation. A random geographic split can place nearby areas in both sets, potentially overstating generalisation to new regions. The test set has already been inspected across several variants and should not be repeatedly reused to select future models. There is no deployment or business-impact measurement. Further work would use geographically separated validation and a new untouched holdout, and examine outlying ratios and individual engineered features; that work is not claimed here.
+Historical, capped area-level values cannot support current property valuation. Random splits can put nearby areas in both sets; the added grid-based check reduces group overlap but does not fully remove spatial dependence. Unconstrained linear predictions can also be negative, as visible in the plots. The test set has already been inspected across several variants and should not be repeatedly reused to select future models. There is no deployment or business-impact measurement. Further work would use a new untouched region or time-based holdout, examine outlying ratios and individual engineered features, and consider target constraints; that work is not claimed here.
 
 ## Run it
 

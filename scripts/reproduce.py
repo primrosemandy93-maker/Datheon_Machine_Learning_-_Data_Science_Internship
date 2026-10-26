@@ -114,11 +114,17 @@ def main():
         if key == 'iris':
             assert np.allclose(metrics['Accuracy'], [28 / 30, 29 / 30], atol=1e-8)
             assert np.allclose(metrics['F1-score'], [0.9333333333333333, 0.9665831244778613], atol=1e-8)
+            repeated = pd.read_csv(ROOT / folder / 'results' / 'repeated_validation_folds.csv')
+            assert repeated.groupby('Model').size().eq(50).all()
+            assert repeated[['Accuracy', 'Macro F1']].apply(lambda col: col.between(0, 1)).all().all()
         else:
             assert np.allclose(metrics['RMSE ($)'], [68078.326, 67358.059, 67358.064, 67358.062], atol=0.10)
             assert np.allclose(metrics['R²'], [0.664, 0.671, 0.671, 0.671], atol=0.001)
             bands = pd.read_csv(ROOT / folder / 'results' / 'errors_by_price_band.csv')
             assert (bands.groupby('Model')['Areas'].sum() == 3400).all()
+            geographic = pd.read_csv(ROOT / folder / 'results' / 'geographic_validation_folds.csv')
+            assert geographic.groupby(['Validation', 'Model']).size().eq(5).all()
+            assert np.isfinite(geographic[['RMSE ($)', 'MAE ($)']].to_numpy()).all()
         print(f'{key}: all cells executed; historical-result checks passed. Outputs: {output.parent}', flush=True)
 
 

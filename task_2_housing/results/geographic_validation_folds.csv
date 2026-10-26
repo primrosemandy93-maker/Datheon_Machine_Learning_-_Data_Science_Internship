@@ -1,0 +1,31 @@
+Validation,Model,Fold,RMSE ($),MAE ($)
+Random 5-fold,Median-value baseline,1,118594.60978743901,87768.83345588236
+Random 5-fold,Median-value baseline,2,121078.6436130156,90314.16764705883
+Random 5-fold,Median-value baseline,3,113182.90956864585,84186.18161764706
+Random 5-fold,Median-value baseline,4,119020.5638745437,88212.80845588235
+Random 5-fold,Median-value baseline,5,122012.37746523102,91261.96066176471
+Random 5-fold,Linear Regression — original,1,68925.16922915544,50255.98945721206
+Random 5-fold,Linear Regression — original,2,71948.67990446418,52576.36381129605
+Random 5-fold,Linear Regression — original,3,67664.90968210464,49785.645747774404
+Random 5-fold,Linear Regression — original,4,69204.28064783773,51443.98408036567
+Random 5-fold,Linear Regression — original,5,72502.49573468484,51362.21072228808
+Random 5-fold,Linear Regression — engineered,1,68620.5254254509,49453.771349051225
+Random 5-fold,Linear Regression — engineered,2,70043.66657441657,51343.64687408964
+Random 5-fold,Linear Regression — engineered,3,66410.42196991087,48801.229123999925
+Random 5-fold,Linear Regression — engineered,4,68055.33045045391,50463.21546883102
+Random 5-fold,Linear Regression — engineered,5,80897.01511281861,50520.04429216429
+Geographic groups,Median-value baseline,1,132949.79595004584,96033.26911764705
+Geographic groups,Median-value baseline,2,107005.76926635057,79754.81286764707
+Geographic groups,Median-value baseline,3,130658.16862893384,99554.0625
+Geographic groups,Median-value baseline,4,124017.71837383643,87345.50514705882
+Geographic groups,Median-value baseline,5,101631.64060143362,83812.22132352942
+Geographic groups,Linear Regression — original,1,87334.19157403697,63638.03030405483
+Geographic groups,Linear Regression — original,2,63971.6347338522,48047.735565875184
+Geographic groups,Linear Regression — original,3,75586.92849749626,54413.10611553763
+Geographic groups,Linear Regression — original,4,66354.47045048719,47477.51077381811
+Geographic groups,Linear Regression — original,5,61959.11976331026,48351.953256626985
+Geographic groups,Linear Regression — engineered,1,84815.5379469832,61582.95269613315
+Geographic groups,Linear Regression — engineered,2,62466.7414808993,46556.82239703913
+Geographic groups,Linear Regression — engineered,3,74700.92992672313,53266.88558214556
+Geographic groups,Linear Regression — engineered,4,82011.98546900332,47835.80685471845
+Geographic groups,Linear Regression — engineered,5,61005.34390989832,47242.47408200624
