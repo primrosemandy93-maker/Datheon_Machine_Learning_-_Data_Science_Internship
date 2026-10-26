@@ -1,0 +1,3 @@
+Features,Mean validation RMSE ($),RMSE standard deviation ($)
+Original features,70049.10703964936,1859.5084313630437
+Engineered features,70805.39190661018,5178.28783895624

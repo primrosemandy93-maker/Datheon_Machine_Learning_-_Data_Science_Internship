@@ -1,0 +1,13 @@
+Price band,MAE,Areas,Model
+$150k–$300k,36353.95611394398,1474,Linear Regression — original
+Above $300k,91016.76129591494,674,Linear Regression — original
+Under $150k,43939.924431932304,1252,Linear Regression — original
+$150k–$300k,36179.36206433297,1474,Linear Regression — engineered
+Above $300k,89805.00930086062,674,Linear Regression — engineered
+Under $150k,42722.9946028844,1252,Linear Regression — engineered
+$150k–$300k,36179.25236895096,1474,Ridge — engineered
+Above $300k,89805.2270138071,674,Ridge — engineered
+Under $150k,42722.97735000231,1252,Ridge — engineered
+$150k–$300k,36179.33449911103,1474,Lasso — engineered
+Above $300k,89805.0636364996,674,Lasso — engineered
+Under $150k,42722.994373326546,1252,Lasso — engineered
